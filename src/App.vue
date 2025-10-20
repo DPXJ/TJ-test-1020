@@ -36,7 +36,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import './assets/styles/global.scss';
+@import '@/assets/styles/global.scss';
 @import 'highlight.js/styles/github.css';
 @import 'highlight.js/styles/github-dark.css' (prefers-color-scheme: dark);
 </style>
