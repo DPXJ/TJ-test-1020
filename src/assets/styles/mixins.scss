@@ -1,0 +1,275 @@
+// ==================== 响应式混合器 ====================
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: #{$breakpoint-xs - 1}) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (min-width: $breakpoint-xs) and (max-width: #{$breakpoint-sm - 1}) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-sm) and (max-width: #{$breakpoint-md - 1}) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-md) and (max-width: #{$breakpoint-lg - 1}) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-sm) and (max-width: #{$breakpoint-md - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// ==================== 弹性布局混合器 ====================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ==================== 文本处理混合器 ====================
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-ellipsis-multi($lines: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ==================== 滚动条样式混合器 ====================
+
+@mixin scrollbar($width: 6px, $track-color: transparent, $thumb-color: var(--border-color)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: $border-radius-sm;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background: var(--text-tertiary);
+    }
+  }
+}
+
+// ==================== 阴影混合器 ====================
+
+@mixin shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+@mixin shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+@mixin shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+// ==================== AI特效混合器 ====================
+
+@mixin glow-effect($color: var(--accent-color, #1890ff)) {
+  box-shadow: 0 0 20px rgba($color, 0.5);
+}
+
+@mixin gradient-bg($from: #667eea, $to: #764ba2, $deg: 135deg) {
+  background: linear-gradient($deg, $from 0%, $to 100%);
+}
+
+@mixin glassmorphism($blur: 10px, $opacity: 0.1) {
+  backdrop-filter: blur($blur);
+  background: rgba(255, 255, 255, $opacity);
+  
+  [data-theme='dark'] & {
+    background: rgba(255, 255, 255, $opacity * 0.5);
+  }
+}
+
+// ==================== 动画混合器 ====================
+
+@mixin transition($properties...) {
+  transition-duration: $transition-normal;
+  transition-timing-function: $ease-in-out;
+  transition-property: $properties;
+}
+
+@mixin hover-lift {
+  transition: transform $transition-normal $ease-out;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin hover-scale($scale: 1.05) {
+  transition: transform $transition-normal $ease-out;
+  
+  &:hover {
+    transform: scale($scale);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// ==================== 呼吸灯效果 ====================
+
+@mixin breathing($duration: 2s) {
+  animation: breathing $duration ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+// ==================== 加载动画 ====================
+
+@mixin pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+// ==================== 流动光效 ====================
+
+@mixin shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// ==================== 打字机效果 ====================
+
+@mixin typing-cursor {
+  &::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+// ==================== 卡片样式 ====================
+
+@mixin card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  @include shadow-sm;
+  @include transition(box-shadow, border-color);
+  
+  &:hover {
+    @include shadow-md;
+    border-color: var(--primary-color);
+  }
+}
+
+// ==================== 按钮重置 ====================
+
+@mixin button-reset {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  color: inherit;
+}
+

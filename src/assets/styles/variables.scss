@@ -1,0 +1,169 @@
+// ==================== 主题颜色变量 ====================
+
+// 浅色主题（默认黑白风）
+:root {
+  // 主色
+  --primary-color: #000000;
+  --primary-hover: #262626;
+  --primary-active: #595959;
+  
+  // 背景色
+  --bg-color: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  
+  // 文本色
+  --text-primary: #000000;
+  --text-secondary: #595959;
+  --text-tertiary: #8c8c8c;
+  --text-disabled: #bfbfbf;
+  
+  // 边框色
+  --border-color: #d9d9d9;
+  --border-light: #f0f0f0;
+  
+  // 功能色
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #ff4d4f;
+  --info-color: #1890ff;
+  
+  // 聊天气泡色
+  --user-bubble-bg: #1890ff;
+  --user-bubble-text: #ffffff;
+  --ai-bubble-bg: #f5f5f5;
+  --ai-bubble-text: #000000;
+  
+  // 阴影
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  // 其他
+  --hover-bg: #fafafa;
+  --active-bg: #f0f0f0;
+}
+
+// 深色主题（AI科技风）
+[data-theme='dark'] {
+  // 主色（AI蓝）
+  --primary-color: #1890ff;
+  --primary-hover: #40a9ff;
+  --primary-active: #096dd9;
+  
+  // 背景色
+  --bg-color: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1a1a1a;
+  
+  // 文本色
+  --text-primary: #ffffff;
+  --text-secondary: #bfbfbf;
+  --text-tertiary: #8c8c8c;
+  --text-disabled: #595959;
+  
+  // 边框色
+  --border-color: #303030;
+  --border-light: #262626;
+  
+  // 功能色
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #ff4d4f;
+  --info-color: #1890ff;
+  
+  // 聊天气泡色
+  --user-bubble-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --user-bubble-text: #ffffff;
+  --ai-bubble-bg: #1a1a1a;
+  --ai-bubble-text: #ffffff;
+  
+  // AI特效色
+  --accent-color: #00d4ff;
+  --glow-color: rgba(0, 212, 255, 0.5);
+  
+  // 阴影
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  
+  // 其他
+  --hover-bg: #262626;
+  --active-bg: #303030;
+}
+
+// ==================== 尺寸变量 ====================
+
+// 间距
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// 圆角
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-round: 9999px;
+
+// 字体大小
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+$font-size-title: 32px;
+
+// 行高
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.8;
+
+// 字重
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ==================== 动画变量 ====================
+
+// 过渡时间
+$transition-fast: 0.1s;
+$transition-normal: 0.3s;
+$transition-slow: 0.5s;
+
+// 缓动函数
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// ==================== Z-index 层级 ====================
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// ==================== 断点 ====================
+
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1600px;
+
+// ==================== 布局变量 ====================
+
+$header-height: 64px;
+$sidebar-width: 280px;
+$sidebar-collapsed-width: 80px;
+$input-area-height: 120px;
+
